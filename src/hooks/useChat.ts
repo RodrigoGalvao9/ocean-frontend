@@ -37,7 +37,7 @@ export function useChat() {
       setMessages(conversation.messages)
     } catch (caught) {
       setError(
-        caught instanceof Error ? caught.message : 'Unable to open conversation.',
+        caught instanceof Error ? caught.message : 'Não foi possível abrir a conversa.',
       )
     } finally {
       setIsLoading(false)
@@ -54,7 +54,7 @@ export function useChat() {
         setError(
           caught instanceof Error
             ? caught.message
-            : 'Unable to delete conversation.',
+            : 'Não foi possível excluir a conversa.',
         )
       }
     },
@@ -83,7 +83,7 @@ export function useChat() {
         await refreshConversations()
       } catch (caught) {
         setError(
-          caught instanceof Error ? caught.message : 'Unable to send message.',
+          caught instanceof Error ? caught.message : 'Não foi possível enviar a mensagem.',
         )
       } finally {
         setIsLoading(false)

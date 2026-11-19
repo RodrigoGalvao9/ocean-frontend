@@ -21,8 +21,8 @@ export default function ChatPage() {
   }, [])
 
   const title = chat.conversationId
-    ? `Conversation ${chat.conversationId.slice(0, 8)}`
-    : 'New conversation'
+    ? `Conversa ${chat.conversationId.slice(0, 8)}`
+    : 'Nova conversa'
 
   return (
     <div className="app-shell">
@@ -52,16 +52,16 @@ export default function ChatPage() {
             type="button"
             className="settings-backdrop"
             onClick={() => setSettingsOpen(false)}
-            aria-label="Close settings"
+            aria-label="Fechar configurações"
           />
-          <section className="settings-dialog" role="dialog" aria-modal="true" aria-label="Settings">
-            <h2>Settings</h2>
+          <section className="settings-dialog" role="dialog" aria-modal="true" aria-label="Configurações">
+            <h2>Configurações</h2>
             <label>
-              API endpoint
+              Endereco da API
               <input value={API_BASE_URL} readOnly />
             </label>
-            <p>Backend URL is configured with <code>VITE_API_URL</code>.</p>
-            <button type="button" onClick={() => setSettingsOpen(false)}>Done</button>
+            <p>A URL do backend foi configurada com <code>VITE_API_URL</code>.</p>
+            <button type="button" onClick={() => setSettingsOpen(false)}>Concluido</button>
           </section>
         </div>
       )}

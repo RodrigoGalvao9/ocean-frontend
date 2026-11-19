@@ -30,21 +30,21 @@ export default function ChatInput({ isLoading, onSend }: ChatInputProps) {
           value={value}
           onChange={(event) => setValue(event.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Ask about the maritime world..."
+          placeholder="Pergunte sobre o mundo marítimo..."
           rows={1}
-          aria-label="Message Ocean"
+          aria-label="Mensagem para Ocean"
           maxLength={4000}
         />
         <button
           type="button"
           onClick={send}
           disabled={!value.trim() || isLoading}
-          aria-label="Send message"
+          aria-label="Enviar mensagem"
         >
           <ArrowUp size={18} />
         </button>
       </div>
-      <p className="input-note">Ocean can make mistakes. Verify important maritime guidance.</p>
+      <p className="input-note">O Ocean pode cometer erros. Verifique orientações marítimas importantes.</p>
     </div>
   )
 }

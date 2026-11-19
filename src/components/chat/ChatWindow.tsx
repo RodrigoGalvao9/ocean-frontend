@@ -39,7 +39,7 @@ export default function ChatWindow({
               />
             ))}
             {isLoading && (
-              <div className="loading-message" aria-label="Ocean is responding">
+              <div className="loading-message" aria-label="Ocean está respondendo">
                 <div className="message-avatar"><span className="ocean-dots">•••</span></div>
                 <div className="typing-dots"><i /><i /><i /></div>
               </div>

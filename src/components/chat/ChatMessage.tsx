@@ -12,7 +12,7 @@ export default function ChatMessage({ message }: { message: ChatMessageType }) {
         {isUser ? <User size={16} /> : <Waves size={16} />}
       </div>
       <div className="message-body">
-        <div className="message-role">{isUser ? 'You' : 'Ocean'}</div>
+        <div className="message-role">{isUser ? 'Você' : 'Ocean'}</div>
         {isUser ? (
           <p className="user-text">{message.content}</p>
         ) : (

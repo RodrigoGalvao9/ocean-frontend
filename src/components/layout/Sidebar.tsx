@@ -29,7 +29,7 @@ export default function Sidebar({
           className="sidebar-menu"
           type="button"
           onClick={onToggle}
-          aria-label="Open sidebar"
+          aria-label="Abrir barra lateral"
         >
           <Menu size={20} />
         </button>
@@ -39,7 +39,7 @@ export default function Sidebar({
           className="sidebar-backdrop"
           type="button"
           onClick={onToggle}
-          aria-label="Close sidebar"
+          aria-label="Fechar barra lateral"
         />
       )}
       <aside className={`sidebar ${open ? 'sidebar-open' : ''}`}>
@@ -52,7 +52,7 @@ export default function Sidebar({
             className="icon-button mobile-close"
             type="button"
             onClick={onToggle}
-            aria-label="Close sidebar"
+            aria-label="Fechar barra lateral"
           >
             <X size={18} />
           </button>
@@ -60,13 +60,13 @@ export default function Sidebar({
 
         <button className="new-chat" type="button" onClick={onNew}>
           <Plus size={17} />
-          New conversation
+          Nova conversa
         </button>
 
-        <nav className="conversation-list" aria-label="Conversation history">
-          <p className="history-label">Recent</p>
+        <nav className="conversation-list" aria-label="Histórico de conversas">
+          <p className="history-label">Recentes</p>
           {conversations.length === 0 ? (
-            <p className="history-empty">No saved conversations</p>
+            <p className="history-empty">Nenhuma conversa salva</p>
           ) : (
             conversations.map((conversation) => (
               <div
@@ -82,18 +82,18 @@ export default function Sidebar({
                 >
                   <span>
                     {conversation.title ||
-                      `Conversation ${conversation.id.slice(0, 6)}`}
+                      `Conversa ${conversation.id.slice(0, 6)}`}
                   </span>
                   <small>
                     {conversation.message_count}{' '}
-                    {conversation.message_count === 1 ? 'message' : 'messages'}
+                    {conversation.message_count === 1 ? 'mensagem' : 'mensagens'}
                   </small>
                 </button>
                 <button
                   type="button"
                   className="conversation-delete"
                   onClick={() => onDelete(conversation.id)}
-                  aria-label="Delete conversation"
+                  aria-label="Excluir conversa"
                 >
                   <Trash2 size={14} />
                 </button>
@@ -104,7 +104,7 @@ export default function Sidebar({
 
         <button className="settings-button" type="button" onClick={onSettings}>
           <Settings size={17} />
-          Settings
+          Configurações
         </button>
       </aside>
     </>

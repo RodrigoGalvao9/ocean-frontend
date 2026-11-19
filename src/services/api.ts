@@ -34,12 +34,12 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
     })
   } catch {
     throw new ApiError(
-      'Unable to reach the Ocean API. Check your connection and API URL.',
+      'Não foi possível conectar à API do Ocean. Verifique sua conexão e a URL da API.',
     )
   }
 
   if (!response.ok) {
-    let detail = `The API request failed (${response.status}).`
+    let detail = `A requisição à API falhou (${response.status}).`
     try {
       const body = (await response.json()) as { detail?: string }
       if (body.detail) detail = body.detail

@@ -2,19 +2,19 @@ import { Compass, Ship, ShieldCheck, Waves } from 'lucide-react'
 
 const suggestions = [
   {
-    title: 'Explain maritime navigation.',
+    title: 'Explique a navegação marítima.',
     icon: Compass,
   },
   {
-    title: 'What are the main types of vessels?',
+    title: 'Quais são os principais tipos de embarcações?',
     icon: Ship,
   },
   {
-    title: 'Explain maritime safety.',
+    title: 'Explique a segurança marítima.',
     icon: ShieldCheck,
   },
   {
-    title: 'What do you know about ocean routes?',
+    title: 'O que você sabe sobre rotas oceânicas?',
     icon: Waves,
   },
 ]
@@ -27,11 +27,11 @@ export default function EmptyState({ onSuggestion }: EmptyStateProps) {
   return (
     <div className="empty-state">
       <div className="empty-emblem"><Waves size={30} /></div>
-      <p className="empty-eyebrow">MARITIME INTELLIGENCE</p>
-      <h1>How can I help you navigate?</h1>
+      <p className="empty-eyebrow">INTELIGÊNCIA MARÍTIMA</p>
+      <h1>Como posso ajudar na navegação?</h1>
       <p className="empty-description">
-        Ask about vessels, routes, navigation, maritime operations,
-        or ocean knowledge.
+        Pergunte sobre embarcacoes, rotas, navegacao, operacoes
+        marítimas ou conhecimento oceânico.
       </p>
       <div className="suggestion-grid">
         {suggestions.map(({ title, icon: Icon }) => (

@@ -78,7 +78,13 @@ export function useChat() {
         setConversationId(response.conversation_id)
         setMessages((current) => [
           ...current,
-          { role: 'assistant', content: response.response },
+          {
+            role: 'assistant',
+            content: response.response,
+            metadata: response.sources?.length
+              ? { sources: response.sources }
+              : {},
+          },
         ])
         await refreshConversations()
       } catch (caught) {

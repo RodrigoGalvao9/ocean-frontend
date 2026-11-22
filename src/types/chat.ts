@@ -1,9 +1,22 @@
 export type MessageRole = 'user' | 'assistant' | 'system'
 
+export interface SourceRef {
+  tool: string
+  name: string
+  url: string | null
+  retrieved_at: string | null
+  data_timestamp: string | null
+  status: string | null
+  freshness: string | null
+  attribution: string | null
+  license: string | null
+  limitations: string[]
+}
+
 export interface ChatMessage {
   role: MessageRole
   content: string
-  metadata?: Record<string, unknown>
+  metadata?: Record<string, unknown> & { sources?: SourceRef[] }
   created_at?: string
 }
 
@@ -33,4 +46,5 @@ export interface ChatResponse {
   response: string
   request_id: string
   duration_ms: number
+  sources?: SourceRef[]
 }

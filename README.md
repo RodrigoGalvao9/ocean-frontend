@@ -58,7 +58,9 @@ The frontend uses the verified Ocean Agent API contract:
 
 Chat requests send `{ "message": "...", "conversation_id": "..." }`.
 The response provides `conversation_id`, `response`, `request_id`, and
-`duration_ms`. Subsequent messages reuse `conversation_id`.
+`duration_ms`, plus `sources`. Subsequent messages reuse `conversation_id`.
+Sources are also restored from the stored assistant message metadata when
+opening an existing conversation.
 
 ## CORS
 

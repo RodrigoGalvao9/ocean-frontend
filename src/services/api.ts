@@ -21,6 +21,27 @@ export const API_BASE_URL = (
   configuredUrl || 'http://localhost:8000'
 ).replace(/\/+$/, '')
 
+const CLIENT_ID_KEY = 'ocean:client-id'
+let memoryClientId: string | null = null
+
+/**
+ * Identificador anônimo e aleatório deste navegador. A API usa para que cada pessoa
+ * enxergue só as próprias conversas (não é login). Se o localStorage estiver bloqueado,
+ * vale só enquanto a aba estiver aberta.
+ */
+function getClientId(): string {
+  try {
+    const stored = localStorage.getItem(CLIENT_ID_KEY)
+    if (stored) return stored
+    const created = crypto.randomUUID().replace(/-/g, '')
+    localStorage.setItem(CLIENT_ID_KEY, created)
+    return created
+  } catch {
+    memoryClientId ??= crypto.randomUUID().replace(/-/g, '')
+    return memoryClientId
+  }
+}
+
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
   let response: Response
 
@@ -29,6 +50,7 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
       ...options,
       headers: {
         'Content-Type': 'application/json',
+        'X-Client-Id': getClientId(),
         ...options?.headers,
       },
     })

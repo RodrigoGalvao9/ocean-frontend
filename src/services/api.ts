@@ -48,6 +48,7 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
   try {
     response = await fetch(`${API_BASE_URL}${path}`, {
       ...options,
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
         'X-Client-Id': getClientId(),

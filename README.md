@@ -47,6 +47,20 @@ The deployable output is the `dist` directory.
 The included `public/_redirects` file provides the SPA fallback for direct
 chat routes.
 
+## Security headers (CSP)
+
+`npm run build` generates a Content-Security-Policy using the origin from
+`VITE_API_URL` (so `connect-src` only allows the app itself and the API):
+
+- a `<meta http-equiv="Content-Security-Policy">` tag in `dist/index.html`, which is
+  what GitHub Pages serves (Pages cannot set HTTP headers);
+- `dist/_headers`, applied as real HTTP headers by Cloudflare. It also adds
+  `frame-ancestors 'none'` (ignored in `<meta>`), `X-Content-Type-Options`,
+  `Referrer-Policy` and `Permissions-Policy`.
+
+The policy is not injected by `npm run dev`. If you add third-party scripts, fonts or
+images, extend the directives in `vite.config.ts`.
+
 ## Backend API
 
 The frontend uses the verified Ocean Agent API contract:
